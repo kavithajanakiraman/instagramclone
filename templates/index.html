@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <div class="login">
+            <div class="login1">
+                <img src="../static/image/bg1.png" alt="">
+            </div>
+            <div class="login2">
+                <div class="login22">
+                    <p class="logo"><img src="../static/image/Instagram_logo.svg.png" alt=""></p>
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul class="flash-messages">
+                        {% for message in messages %}
+                            <li class="flash-message">{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                    {% endwith %}
+                    <form action="{{url_for('login')}}" method="POST">
+                        <label for="email"></label>
+                        <input type="email" name="email" placeholder="Enter Email"  id="email" name="email" required ><br>
+                        <label for="password"></label>
+                        <input type="password" name="password" placeholder="Password"  id="password" name="password" required><br>
+                        <input type="submit" value="Log in" class="loginb">
+                    </form>
+                    <span>__________ </span><span class="mo">OR</span><span> __________ </span>
+
+                    <img src="../static/image/fb.avif" alt=""><span class="fb">Login with facebook</span>
+                    <p class="forgot">forgot password?</p>
+                </div>
+                <div class="login22-sub">
+                    <p>Don't have an account? <a href="{{url_for('register')}}">Sign up</a></p>
+                </div>
+                <div class="login22-sub2">
+                    <p>Get the app</p>
+                    <span><img src="../static/image/google.png" alt="" >
+                        <img src="../static/image/micro.png" alt="" class="mic"></span>
+                </div>
+            </div>
+            
+        </div>
+        <p class="doo">Meta About Blog Jobs Help API Privacy Terms Top Accounts Locations Instagram Lite Contact Uploading & Non-Users Meta Verified </p>
+           <p> English 2023 Instagram from Meta</p>
+    </section>
+    <!-- <img src="../static/image/WhatsApp Image 2023-05-30 at 16.04.19.jpg" alt=""> -->
+</body>
+</html>

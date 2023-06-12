@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <div class="all">
+            <div class="nav">
+                <p><img src="../static/image/Instagram_logo.svg.png" alt=""></p>
+                <ul>
+                    <li><a href="{{url_for('home')}}"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                    <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i> Search</a></li>
+                    <li><a href="#"><i class="fa fa-compass" aria-hidden="true"></i> Explore</a></li>
+                    <li><a href="#"><i class="fa fa-play-circle" aria-hidden="true"></i> Reels</a></li>
+                    <li><a href="#"><i class="fa fa-comment" aria-hidden="true"></i> Messages</a></li>
+                    <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Notification</a></li>
+                    <li><a href="{{url_for('upload')}}"><i class="fa fa-plus-square" aria-hidden="true"></i> Create</a></li>
+                    
+                </ul>
+                <div class="sub">
+                    <div class="sub1">
+                        <a href="{{url_for('user')}}">
+                            {% if image %}
+                            <img src="{{ image }}" alt="">
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="sub2">
+                        <h3> <a href="{{url_for('user')}}">{{username}}</a></h3>
+                    </div>
+                </div>
+                <div class="sub3">
+                    <h3><i class="fa fa-bars" aria-hidden="true"></i> More</h3>
+                    <div class="dropdown">
+                        <h2><a href="{{url_for('logout')}}">Logout</a></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="user-details">
+                <div class="user-infooo">
+                    <div class="user-picc">
+                        <div class="piccc">
+                            {% if image %}
+                            <img src="{{ image }}" alt="">
+                            {% endif %}
+                        </div>
+                        <div class="pic-infoo">
+                           <p>{{username}} <a href="#" class="edit">Edit-profile</a><a href="#" class="icon"><i class="fa fa-cog" aria-hidden="true"></i></a></p>
+                           <p><span>20 posts</span><span>320 followers</span><span>1,077 following</span></p>
+                           <!-- <h3>crazy_ boy_Sandy</h3> -->
+                           <p>My friends are my life 😍<br>
+                            And dont underestimate me <br>
+                            You only see what I show you</p>
+                        </div>
+                    </div>
+                    <div class="statuss">
+                        <div class="status1">
+                            <div class="high1">
+                                <img src="../static/image/akashraj.jpg" alt="">
+                            </div>
+                            <div class="highname">
+                                <p>Highlights</p>
+                            </div>
+                        </div>
+
+                        <div class="status1">
+                            <div class="high1">
+                                <img src="../static/image/shan.jpg" alt="">
+                            </div>
+                            <div class="highname">
+                                <p>Highlights</p>
+                            </div>
+                        </div>
+
+                        <div class="status1">
+                            <div class="high1">
+                                <img src="../static/image/priyajoy.jpg" alt="">
+                            </div>
+                            <div class="highname">
+                                <p>Highlights</p>
+                            </div>
+                        </div>
+
+                        <div class="status1">
+                            <div class="high1">
+                                <img src="../static/image/rednathi.jpg" alt="">
+                            </div>
+                            <div class="highname">
+                                <p>Highlights</p>
+                            </div>
+                        </div>
+
+                        <div class="status1">
+                            <div class="high1">
+                                <img src="../static/image/vgr mani.jpg" alt="">
+                            </div>
+                            <div class="highname">
+                                <p>Highlights</p>
+                            </div>
+                        </div>
+
+                        <div class="status1">
+                            <div class="high1">
+                                <img src="../static/image/plus.png" alt="">
+                            </div>
+                            <div class="highname">
+                                <p>Highlights</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="option">
+                    <p><span><i class="fa fa-th" aria-hidden="true"></i> POSTS</span><span><i class="fa fa-bookmark" aria-hidden="true"></i> SAVED</span><span><i class="fa fa-user" aria-hidden="true"></i> TAGGED</span></p>
+                </div>
+                <div class="user-image">
+                    <div class="flex-image">
+                        {%for j in posts%}
+                        <div class="sec1">
+                            <div class="user-upload1">
+                                <img src="{{url_for('static', filename=j.image)}}" alt="">
+                            </div>
+                        </div>
+                        {%endfor%}
+                        <div class="sec1">
+                            <div class="user-upload1">
+    
+                            </div>
+                        </div>
+                        <div class="sec1">
+                            <div class="user-upload1">
+    
+                            </div>
+                        </div>
+                        
+                    </div>
+                   
+                    
+                </div>
+                <div class="footer">
+                    <p class="abo">About &bull; Help &bull; Press &bull; API &bull; Jobs &bull; Privacy &bull; Terms &bull; Locations &bull; Language &bull; English &bull; Meta &bull; Verified</p>
+                    <p class="ins">© 2023 INSTAGRAM FROM META</p>
+                </div>
+            </div>
+           
+
+        </div>
+        
+    </section>
+    
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <section class="aa">
+        <div class="all">
+            <div class="nav">
+                <p><img src="../static/image/Instagram_logo.svg.png" alt=""></p>
+                <ul>
+                    <li><a href="{{url_for('home')}}"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                    <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i> Search</a></li>
+                    <li><a href="#"><i class="fa fa-compass" aria-hidden="true"></i> Explore</a></li>
+                    <li><a href="#"><i class="fa fa-play-circle" aria-hidden="true"></i> Reels</a></li>
+                    <li><a href="#"><i class="fa fa-comment" aria-hidden="true"></i> Messages</a></li>
+                    <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Notification</a></li>
+                    <li><a href="{{url_for('upload')}}"><i class="fa fa-plus-square" aria-hidden="true"></i> Create</a></li>
+                    
+                </ul>
+                <div class="sub">
+                    <div class="sub1">
+                        <a href="{{url_for('user')}}">
+                            {% if image %}
+                            <img src="{{ image }}" alt="">
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="sub2">
+                        <h3> <a href="{{url_for('user')}}">{{username}}</a></h3>
+                    </div>
+                </div>
+                <div class="sub3">
+                    <h3><i class="fa fa-bars" aria-hidden="true"></i> More</h3>
+                    <div class="dropdown">
+                        <h2><a href="{{url_for('logout')}}">Logout</a></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="center">
+                <div class="status">
+                    <p>
+                        <img src="../static/image/akashraj.jpg" alt="">
+                        <img src="../static/image/priyajoy.jpg" alt="">
+                        <img src="../static/image/rednathi.jpg" alt="">
+                        <img src="../static/image/shan.jpg" alt="">
+                        <img src="../static/image/romeo karthi.jpg" alt="">
+                        <img src="../static/image/sakthiajith.jpg" alt="">
+                        <img src="../static/image/samsam.jpg" alt="">
+                        <img src="../static/image/vgr mani.jpg" alt="">
+                    </p>
+
+                    {%for j in posts%}
+                    <div class="posts">
+                        <div class="post-user">
+                            <div class="post-user1">
+                                {% if image %}
+                                <img src="{{ image }}" alt="">
+                                {% endif %}
+                            </div>
+                            <div class="post-user2">
+                                <h3>{{username}}</h3>
+                            </div>
+                            <div class="post-user3">
+                                <p><i class="fa fa-ellipsis-h" aria-hidden="true"></i></p>
+                                <div class="dropdown2">
+                                    <p><a href="{{url_for('edit',image_content= j.image_content)}}">Edit</a></p>
+                                    <p><a href="{{url_for('delete',image_content= j.image_content)}}">Delete</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-img">
+                            <img src="{{url_for('static', filename=j.image)}}" alt="">
+                        </div>
+                        <div class="like">
+                            <div class="like1">
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                <i class="fa fa-comment" aria-hidden="true"></i>
+                                <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                
+                            </div>
+                            <div class="like2">
+                                <i class="fa fa-bookmark" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <p>67,803 likes</p>
+                        <h3>{{username}} <span>  {{j.image_content}}</span></h3>
+                        <p>Add a comment</p>
+                        <hr>
+                    </div>
+                    {%endfor%}
+
+
+                    <div class="posts">
+                        <div class="post-user">
+                            <div class="post-user1">
+                                <img src="../static/image/user1.webp" alt="">
+                            </div>
+                            <div class="post-user2">
+                                <h3>programerjokes.official</h3>
+                            </div>
+                            <div class="post-user3">
+                                <p><i class="fa fa-ellipsis-h" aria-hidden="true"></i></p>
+                                
+                            </div>
+                        </div>
+                        <div class="post-img">
+                            <img src="../static/image/post1.jpg" alt="">
+                        </div>
+                        <div class="like">
+                            <div class="like1">
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                <i class="fa fa-comment" aria-hidden="true"></i>
+                                <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                
+                            </div>
+                            <div class="like2">
+                                <i class="fa fa-bookmark" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <p>67,803 likes</p>
+                        <h3>programerjokes.official <span>Tell Me About Pressure 😂😂</span></h3>
+                        <p>Add a comment</p>
+                        <hr>
+                    </div>
+
+
+                    <div class="posts">
+                        <div class="post-user">
+                            <div class="post-user1">
+                                <img src="../static/image/user2.png" alt="">
+                            </div>
+                            <div class="post-user2">
+                                <h3>Career_code</h3>
+                            </div>
+                            <div class="post-user3">
+                                <p><i class="fa fa-ellipsis-h" aria-hidden="true"></i></p>
+                            </div>
+                        </div>
+                        <div class="post-img">
+                            <img src="../static/image/post2.jpg" alt="">
+                        </div>
+                        <div class="like">
+                            <div class="like1">
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                <i class="fa fa-comment" aria-hidden="true"></i>
+                                <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                
+                            </div>
+                            <div class="like2">
+                                <i class="fa fa-bookmark" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <p>67,803 likes</p>
+                        <h3>Career_code <span>We're not same bro 🤦‍♂️</span></h3>
+                        <p>Add a comment</p>
+                        <hr>
+                    </div>
+
+
+                    <div class="posts">
+                        <div class="post-user">
+                            <div class="post-user1">
+                                <img src="../static/image/user3.jpg" alt="">
+                            </div>
+                            <div class="post-user2">
+                                <h3>beastquotes</h3>
+                            </div>
+                            <div class="post-user3">
+                                <p><i class="fa fa-ellipsis-h" aria-hidden="true"></i></p>
+                            </div>
+                        </div>
+                        <div class="post-img">
+                            <img src="../static/image/post3.jpg" alt="">
+                        </div>
+                        <div class="like">
+                            <div class="like1">
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                <i class="fa fa-comment" aria-hidden="true"></i>
+                                <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                
+                            </div>
+                            <div class="like2">
+                                <i class="fa fa-bookmark" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <p>67,803 likes</p>
+                        <h3>beastquotes  <span></span></h3>
+                        <p>Add a comment</p>
+                        <hr>
+                    </div>
+
+
+                    <div class="posts">
+                        <div class="post-user">
+                            <div class="post-user1">
+                                <img src="../static/image/user4.webp" alt="">
+                            </div>
+                            <div class="post-user2">
+                                <h3>themotivationfusion</h3>
+                            </div>
+                            <div class="post-user3">
+                                <p><i class="fa fa-ellipsis-h" aria-hidden="true"></i></p>
+                            </div>
+                        </div>
+                        <div class="post-img">
+                            <img src="../static/image/post4.jpg" alt="">
+                        </div>
+                        <div class="like">
+                            <div class="like1">
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                <i class="fa fa-comment" aria-hidden="true"></i>
+                                <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                
+                            </div>
+                            <div class="like2">
+                                <i class="fa fa-bookmark" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <p>67,803 likes</p>
+                        <h3>themotivationfusion <span>For daily mind set talk</span></h3>
+                        <p>Add a comment</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="user">
+                    <div class="user-pic">
+                        {% if image %}
+                            <img src="{{ image }}" alt="">
+                            {% endif %}
+                    </div>
+                    <div class="user-name">
+                        <h3>{{username}}</h3>
+                    </div>
+                    <div class="user-switch">
+                        <span><a href="{{url_for('logout')}}">Logout</a></span>
+                    </div>
+                </div>
+                <div class="suggg">
+                    <div class="sugg">
+                        <div class="sug1">
+                            Suggested for you
+                        </div>
+                        <div class="sug2">
+                            <p>See all</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="user1">
+                    <div class="user-pic1">
+                        <img src="../static/image/shan.jpg" alt="">
+                    </div>
+                    <div class="user-name1">
+                        <h3>skaviya1001</h3>
+                    </div>
+                    <div class="user-switch1">
+                        <span><a href="#">Follow</a></span>
+                    </div>
+                </div>
+
+                <div class="user1">
+                    <div class="user-pic1">
+                        <img src="../static/image/priyajoy.jpg" alt="">
+                    </div>
+                    <div class="user-name1">
+                        <h3>dhanudineszworld</h3>
+                    </div>
+                    <div class="user-switch1">
+                        <span><a href="#">Follow</a></span>
+                    </div>
+                </div>
+
+                <div class="user1">
+                    <div class="user-pic1">
+                        <img src="../static/image/romeo karthi.jpg" alt="">
+                    </div>
+                    <div class="user-name1">
+                        <h3>camsy_jimenez</h3>
+                    </div>
+                    <div class="user-switch1">
+                        <span><a href="#">Follow</a></span>
+                    </div>
+                </div>
+
+                <div class="user1">
+                    <div class="user-pic1">
+                        <img src="../static/image/vgr mani.jpg" alt="">
+                    </div>
+                    <div class="user-name1">
+                        <h3>james549j</h3>
+                    </div>
+                    <div class="user-switch1">
+                        <span><a href="#">Follow</a></span>
+                    </div>
+                </div>
+
+                <div class="user1">
+                    <div class="user-pic1">
+                        <img src="../static/image/rednathi.jpg" alt="">
+                    </div>
+                    <div class="user-name1">
+                        <h3>prithvik_vibanya</h3>
+                    </div>
+                    <div class="user-switch1">
+                        <span><a href="#">Follow</a></span>
+                    </div>
+                </div>
+
+                <p class="abo">About &bull; Help &bull; Press &bull; API &bull; Jobs &bull; Privacy &bull; Terms &bull; Locations &bull; Language &bull; English &bull; Meta &bull; Verified</p>
+                <p class="ins">© 2023 INSTAGRAM FROM META</p>
+            </div>
+
+           
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <div class="nav">
+            <p><img src="../static/image/Instagram_logo.svg.png" alt=""></p>
+            <ul>
+                <li><a href="{{url_for('home')}}"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i> Search</a></li>
+                <li><a href="#"><i class="fa fa-compass" aria-hidden="true"></i> Explore</a></li>
+                <li><a href="#"><i class="fa fa-play-circle" aria-hidden="true"></i> Reels</a></li>
+                <li><a href="#"><i class="fa fa-comment" aria-hidden="true"></i> Messages</a></li>
+                <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Notification</a></li>
+                <li><a href="{{url_for('upload')}}"><i class="fa fa-plus-square" aria-hidden="true"></i> Create</a></li>
+                
+            </ul>
+            <div class="sub">
+                <div class="sub1">
+                    <a href="{{url_for('user')}}">
+                        {% if image %}
+                        <img src="{{ image }}" alt="">
+                        {% endif %}
+                    </a>
+                </div>
+                <div class="sub2">
+                    <h3> <a href="{{url_for('user')}}">{{username}}</a></h3>
+                </div>
+            </div>
+            <div class="sub3">
+                <h3><i class="fa fa-bars" aria-hidden="true"></i> More</h3>
+                <div class="dropdown">
+                    <h2><a href="{{url_for('logout')}}">Logout</a></h2>
+                </div>
+            </div>
+        </div>
+        <div class="upload-form">
+            <a href="{{url_for('user')}}"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+            <form action="{{url_for('edit',image_content=edit.image_content)}}" method="POST" enctype="multipart/form-data">
+                <label for="image">Select Image</label>
+                <input type="file" placeholder="Choose image" name="image"  accept="image/*" value="{{edit.image}}" id="image" class="imm" required><br>
+                <label for="image_content"  class="moo">Write</label>
+                <input type="text" placeholder="What'ss on your mind?" name="image_content" value="{{edit.image_content}}" id="image_content" class="imm2"><br>
+                <input type="submit" value="submit" class="submit">
+            </form>
+        </div>
+    </section>
+</body>
+</html>
